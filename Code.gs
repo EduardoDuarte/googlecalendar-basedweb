@@ -88,23 +88,4 @@ function calendar(title, startTime, endTime, location,description,email){
   
 }
 
-function calendar2(){
-  var options = {location: 'Rua Brasil, 67 Vila Brasileira - Itatiba',description: 'Google Calendar',guests: 'eduardo.duarte@santodigital.com.br'};
-
-  
-  var id = '7o3elmb8pl4feibiedc3vblja8@group.calendar.google.com'
-  var event = CalendarApp.getCalendarById(id);
-  Logger.log(valid_date('2015-05-14T03:30'));
-  //Calendar.createEvent([Script, Wed May 20 23:03:00 PDT 2015, Thu May 21 00:04:00 PDT 2015, {location=Rua Brasil, 67 Vila Brasileira - Itatiba, description=Scripp, guests=Eduardo}]) [0.038 seconds]
-  return event.createEvent('Reunião Freelancer', new Date('Wed May 20 23:03:00 PDT 2015'), new Date('Thu May 21 00:04:00 PDT 2015'),options);
-
-}
-
-function info2(){
-  return HtmlService.createHtmlOutputFromFile('dialog.html')
-      .setSandboxMode(HtmlService.SandboxMode.IFRAME);
-  
-  
-
-}
 

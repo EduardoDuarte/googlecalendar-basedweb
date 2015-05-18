@@ -1,0 +1,21 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+
+/** sidebar-settext-button / Click Buton**/
+$(function() {
+$('#sidebar-setcalendarevent-button').click(calendar);
+   
+   });
+
+/** Call calendar funciton code.gs**/
+function calendar(){
+     google.script.run.withFailureHandler(alert)
+     .calendar($('#title').val(),$('#startTime').val(),$('#endTime').val(),$('#location').val(),$('#description').val()
+     ,$('#email').val())
+     .location.reload();
+  }
+
+
+
+</script>

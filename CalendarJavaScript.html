@@ -5,17 +5,29 @@
 /** sidebar-settext-button / Click Buton**/
 $(function() {
 $('#sidebar-setcalendarevent-button').click(calendar);
+showStatus('Please insert above detail of your plublic event');
    
    });
 
 /** Call calendar funciton code.gs**/
 function calendar(){
-     google.script.run.withFailureHandler(alert)
-     .calendar($('#title').val(),$('#startTime').val(),$('#endTime').val(),$('#location').val(),$('#description').val()
-     ,$('#email').val())
-     .location.reload();
+     
+        google.script.run.withFailureHandler(alert)
+        .calendar($('#title').val(),$('#startTime').val(),$('#duration').val(),$('#location').val(),$('#description').val());
+        
+        if( $('#duration').val() > 0){
+        showStatus('Created event, please refresh your page!, for see your calendar click in link below');
+       }
+        else {
+        showStatus('Please, insert data above');
+      }
   }
 
 
-
-</script>
+function showStatus(msg, classId) {
+    $('#sidebar-status').removeClass().html(msg);
+    if (classId) {
+      $('#sidebar-status').addClass(classId);
+    }
+  }
+  

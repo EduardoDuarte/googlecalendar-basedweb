@@ -1,7 +1,7 @@
 <!-- Use a templated HTML printing . -->
 <?!= HtmlService.createHtmlOutputFromFile('Stylesheet.html').getContent(); ?>
   
-  <!-- Forms for calendar entries. -->
+ <!-- Forms for calendar entries. -->
   <form  id = #calendar-elements >
     <fieldset>
         <legend>Public Google Calendar</legend>
@@ -9,29 +9,33 @@
         <label for="Untitled event"></label>
         <input id="title" type="Untitled event" placeholder="Untitled event" required >
         
+       
         <input type="datetime-local" name="bdaytime" id="startTime" required>
-        <input type="datetime-local" name="bdaytime"  id="endTime" required>
+         
+        <input type="number" value="1" min="1" max="23" name="bdaytime" placeholder="duration" id="duration" required>
+        
         
         <label for="where"></label>
-        <input id="location" type="Where" placeholder="Where" required >
+        <input id="location" type="text" placeholder="Where" required >
         
         <label for="description"></label>
-        <input id="description" type="Description" placeholder="Description" required >
+        <input id="description" type="text" placeholder="Description"  row = 3>
         
-        <label for="email"></label>
-        
-        <input id="email" type="email" placeholder="Guests Email Address" required >
+      
         
         <button  class="btn btn-success" type="submit" id="sidebar-setcalendarevent-button">Create</button>
+        
+        <div id="sidebar-status"></div>
         
     </fieldset>
     
 </form>
- <fieldset>
+
+<p>Click for see the calendar <a href="https://script.google.com/macros/s/AKfycbw4wJfojMsfTaFSBgzm-UnOatl_pdQ0laABgRywxzUWejwsv_U/exec" target="_blank" >Public Calendar</a>.</p>
+
       <iframe src="https://www.google.com/calendar/embed?src=7o3elmb8pl4feibiedc3vblja8%40group.calendar.google.com&ctz=America/Sao_Paulo" 
       style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
       </iframe>
-    </fieldset>
- 
+
 <!-- Use a templated HTML printing scriptlet to import JavaScript -->
 <?!= HtmlService.createHtmlOutputFromFile('CalendarJavaScript').getContent(); ?>

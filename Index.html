@@ -2,16 +2,15 @@
 <?!= HtmlService.createHtmlOutputFromFile('Stylesheet.html').getContent(); ?>
   
  <!-- Forms for calendar entries. -->
-  <form  id = #calendar-elements >
-    <fieldset>
+  
         <legend>Public Google Calendar</legend>
 
         <label for="Untitled event"></label>
         <input id="title" type="Untitled event" placeholder="Untitled event" required >
         
        
-        <input type="datetime-local" name="bdaytime" id="startTime" required>
-         
+        <div><p id="hora"></div>
+        <p Duration >
         <input type="number" value="1" min="1" max="23" name="bdaytime" placeholder="duration" id="duration" required>
         
         
@@ -27,9 +26,7 @@
         
         <div id="sidebar-status"></div>
         
-    </fieldset>
-    
-</form>
+
 
 <p>Click for see the calendar <a href="https://script.google.com/macros/s/AKfycbw4wJfojMsfTaFSBgzm-UnOatl_pdQ0laABgRywxzUWejwsv_U/exec" target="_blank" >Public Calendar</a>.</p>
 
@@ -37,5 +34,14 @@
       style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
       </iframe>
 
+<script>
+var d = new Date();
+
+document.getElementById("hora").innerHTML = d;
+
+</script>
 <!-- Use a templated HTML printing scriptlet to import JavaScript -->
+
+
 <?!= HtmlService.createHtmlOutputFromFile('CalendarJavaScript').getContent(); ?>
+

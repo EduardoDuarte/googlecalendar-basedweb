@@ -24,37 +24,32 @@ function doGet(e) {
 /**
 *Funciton for valid times
  */
-function valide2(){
-  var time = new Date();
-  var V_startTime = new Date(time.getTime() + 1 * 60 * 60 * 1000);
-  Logger.log(V_startTime)//Sat May 23 10:39:07 GMT-03:00 2015 - //2015-06-11T12:34
-  // June 11, 2015 12:34:00 GMT-03:00
-}
-function valid_date(time2){
-  //var time2 = '2015-06-30T00:46'
-  var year = time2[0]+time2[1]+time2[2]+time2[3];
 
-  if (time2[5] + time2[6] == 01) var month = 'January'
-  if (time2[5] + time2[6] == 02) var month = 'February'
-  if (time2[5] + time2[6] == 03) var month = 'March'
-  if (time2[5] + time2[6] == 04) var month = 'April'
-  if (time2[5] + time2[6] == 05) var month = 'May'
-  if (time2[5] + time2[6] == 06) var month = 'June'
-  if (time2[5] + time2[6] == 07) var month = 'July'
-  if (time2[5] + time2[6] == 08) var month = 'August'
-  if (time2[5] + time2[6] == 09) var month = 'September'
-  if (time2[5] + time2[6] == 10) var month = 'October'
-  if (time2[5] + time2[6] == 11) var month = 'November'
-  if (time2[5] + time2[6] == 12) var month = 'December'
+function valid_date(date, time){
 
-  var day =  time2[8] + time2[9]
-  var hour = time2[11] + time2[12]+time2[13] + time2[14]+time2[15];
+  var year = date[0]+date[1]+date[2]+date[3];
+
+  if (date[5] + date[6] == 01) var month = 'January'
+  if (date[5] + date[6] == 02) var month = 'February'
+  if (date[5] + date[6] == 03) var month = 'March'
+  if (date[5] + date[6] == 04) var month = 'April'
+  if (date[5] + date[6] == 05) var month = 'May'
+  if (date[5] + date[6] == 06) var month = 'June'
+  if (date[5] + date[6] == 07) var month = 'July'
+  if (date[5] + date[6] == 08) var month = 'August'
+  if (date[5] + date[6] == 09) var month = 'September'
+  if (date[5] + date[6] == 10) var month = 'October'
+  if (date[5] + date[6] == 11) var month = 'November'
+  if (date[5] + date[6] == 12) var month = 'December'
+
+  var day =  date[8] + date[9]
+  var hour = time[0] + time[1]+time[2] + time[3]+time[4];
  
   
   var timeGoogleCalerdar = month + ' '+day+','+' '+year+' '+hour+':00'+' '+'GMT-03:00'
   
   return timeGoogleCalerdar;
-
+  
   
 }
 
@@ -75,15 +70,19 @@ function test(){
   event.createEvent('Eduardo', V_startTime, V_endTime, options);
 }
 
-function calendar(title,duration, location,description){
+function calendar(title,StartDate,StartTime,duration, location,description){
   
   var options = {location: location,description: description, sendInvites: true };
-  var time = new Date();
+  var StartDayTime = valid_date(StartDate, StartTime);
+  
+  var time = new Date(StartDayTime);
+  
   var V_startTime = new Date(time.getTime() + (  0 ) * 60 * 60 * 1000);
   var V_endTime =  new Date(time.getTime() + ( duration ) * 60 * 60 * 1000);
   
-  
-  
+  Logger.log(V_startTime);
+  Logger.log(StartTime);
+  Logger.log(time);
   var event = CalendarApp.getCalendarById(ID_Calendar);
  
   if (time < V_endTime   ){
@@ -111,12 +110,3 @@ function calendar(title,duration, location,description){
 
   
 }
-
-
-
-
-
-
-  
-}
-

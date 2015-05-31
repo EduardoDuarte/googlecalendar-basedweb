@@ -13,7 +13,8 @@ showStatus('Please insert above detail of your plublic event');
 function calendar(){
      
         google.script.run.withFailureHandler(alert)
-        .calendar($('#title').val(),$('#duration').val(),$('#location').val(),$('#description').val());
+        .calendar($('#title').val(),$('#StartDate').val(),$('#StartTime').val(),$('#duration').val(),
+        $('#location').val(),$('#description').val());
         
         if( $('#duration').val() > 0){
         showStatus('Created event, please refresh your page!, for see your calendar click in link below');
@@ -31,11 +32,6 @@ function showStatus(msg, classId) {
     }
   }
   
-function datehour() {
-    var d = new Date();
 
-    document.getElementById("hora").innerHTML = d;
-}
 
 </script>
-

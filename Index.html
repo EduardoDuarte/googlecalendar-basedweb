@@ -7,17 +7,19 @@
 
         <label for="Untitled event"></label>
         <input id="title" type="Untitled event" placeholder="Untitled event" required >
+                
+        <input id="StartDate" name="StartDate" type="date">
         
-       
-        <div><p id="hora"></div>
-        <p Duration >
+        <input id="StartTime" name="StartTime" type="time">
+        
         <input type="number" value="1" min="1" max="23" name="bdaytime" placeholder="duration" id="duration" required>
-        
-        
+                
         <label for="where"></label>
+        
         <input id="location" type="text" placeholder="Where" required >
         
         <label for="description"></label>
+        
         <input id="description" type="text" placeholder="Description"  row = 3>
         
       
@@ -34,12 +36,7 @@
       style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
       </iframe>
 
-<script>
-var d = new Date();
 
-document.getElementById("hora").innerHTML = d;
-
-</script>
 <!-- Use a templated HTML printing scriptlet to import JavaScript -->
 
 
